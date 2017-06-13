@@ -44,7 +44,7 @@ augroup taskwiki
 augroup END
 
 " Global update commands
-let save_cursor = " vim.command(\"let save_pos = getpos(\\\".\\\")\"); "
+let save_cursor = " import vim; vim.command(\"let save_pos = getpos(\\\".\\\")\"); "
 let restore_cursor = ";vim.command(\"call setpos(\\\".\\\", save_pos)\");"
 execute "command! -nargs=* TaskWikiBufferSave :"      . g:taskwiki_py . save_cursor . "WholeBuffer.update_to_tw()" . restore_cursor
 execute "command! -nargs=* TaskWikiBufferLoad :"      . g:taskwiki_py . save_cursor . "WholeBuffer.update_from_tw()" . restore_cursor
